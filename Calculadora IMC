@@ -1,0 +1,62 @@
+# Quadro informativo do IMC
+print('            Tabela IMC - Índice de Massa Corporal')
+print('|  IMC (kg/m²)   |            Classificação              |')
+print('|   <16          |    Magreza grave                      |')
+print('|   16 a 16,9    |    Magreza moderada                   |')
+print('|   17 a 18,4    |    Magreza leve                       |')
+print('|   18,5 a 24,9  |    Normal                             |')
+print('|   25 a 29,9    |    Pré-obesidade                      |')
+print('|   30 a 34,9    |    Obesidade moderada (grau I)        |')
+print('|   35 a 39,9    |    Obesidade severa (grau II)         |')
+print('|   ≥ 40         |    Obesidade muito severa (grau III)  |')
+
+print("Dica: Sempre utilize ponto (.) ao invés de virgula (,) na entrada de seu peso e altura.")
+
+def calcular_imc(peso, altura):
+    if altura <= 0:
+        return "Altura inválida"
+
+    imc = peso / (altura ** 2)
+    return imc
+
+def classificar_imc(imc):
+    if imc < 16:
+        return "Magreza grave"
+    elif imc < 17:
+        return "Magreza moderada"
+    elif imc < 18.5:
+        return "Magreza leve"
+    elif imc < 25:
+        return "Normal"
+    elif imc < 30:
+        return "Pré-Obesidade"
+    elif imc < 35:
+        return "Obesidade moderada (grau I)"
+    elif imc < 40:
+        return "Obesidade severa (grau II)"
+    else:
+        return "Obesidade muito severa (grau III)"
+
+while True:
+    # Entrada do nome, peso e altura
+    input('Digite seu nome: ')
+    int(input('Digite sua idade: '))
+    peso = float(input("Digite o peso (kg): "))
+    altura = float(input("Digite a altura (m): "))
+
+    # Calcular o IMC
+    imc = calcular_imc(peso, altura)
+
+    # Classificar o IMC
+    classificacao = classificar_imc(imc)
+
+    # Exibir resultados
+    print(f"Seu IMC é: {imc:.2f}")
+    print(f"Classificação: {classificacao}")
+
+    repetir = input("Deseja calcular o IMC novamente? (S/N): ")
+    if repetir.lower() != "s":
+        break
+
+print('Este programa não subistitui um acompanhamento de um especialista da área.')
+print("Lembre-se de procurar a ajuda de um profissional mais próximo para auxiliá-lo(a).")
